@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app-header-contents">
+      <h1>- おみくじアプリ -</h1>
+      <h2>今日のあなたの運勢は・・・</h2>
+      <button class="start-button js-fortune-start" type="button">
+        運勢を占う！
+      </button>
+    </div>
+
+    <div class="result">
+      <div class="row">
+        <div class="radius money">
+          <p class="title">金運</p>
+          <p class="stars"></p>
+          <p class="detail"></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="radius work">
+          <p class="title">仕事運</p>
+          <p class="stars"></p>
+          <p class="detail"></p>
+        </div>
+        <div class="radius health">
+          <p class="title">健康運</p>
+          <p class="stars"></p>
+          <p class="detail"></p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
