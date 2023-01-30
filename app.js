@@ -1,10 +1,10 @@
 $(document).ready(() => {
-  const starClassName = "stars";
-  const detailClassName = "detail";
-  const haveBtnClassName = "app-header-contents";
-  const originBtnName = "js-fortune-start";
-  const changedBtnClassName = "js-fortune-restart";
-  const resultClassName = "result";
+  const STAR_CLASS_NAME = "stars";
+  const DETAIL_CLASS_NAME = "detail";
+  const HAVE_BUTTON_CLASS_NAME = "app-header-contents";
+  const ORIGIN_BUTTON_NAME = "js-fortune-start";
+  const CHANGED_BUTTON_CLASS_NAME = "js-fortune-restart";
+  const RESULT_CLASS_NAME = "result";
   const fortuneResults = {
     money: [
       {
@@ -52,60 +52,62 @@ $(document).ready(() => {
   };
   $(() => {
     $(".start-button").click(function () {
-      if ($(this).hasClass(originBtnName)) {
+      if ($(this).hasClass(ORIGIN_BUTTON_NAME)) {
         for (const title in fortuneResults) {
           const rand = Math.floor(Math.random() * 3);
           const $target = $(`.${title}`);
           $target
-            .find(`.${starClassName}`)
-            .text(fortuneResults[title][rand][starClassName]);
+            .find(`.${STAR_CLASS_NAME}`)
+            .text(fortuneResults[title][rand][STAR_CLASS_NAME]);
           $target
-            .find(`.${detailClassName}`)
-            .text(fortuneResults[title][rand][detailClassName]);
+            .find(`.${DETAIL_CLASS_NAME}`)
+            .text(fortuneResults[title][rand][DETAIL_CLASS_NAME]);
         }
       }
-      $(this).toggleClass(originBtnName).prop("disabled", true);
+      $(this).toggleClass(ORIGIN_BUTTON_NAME).prop("disabled", true);
       setTimeout(() => {
         $(this).prop("disabled", false);
       }, 1000);
-      if ($(this).hasClass(originBtnName)) {
-        $(`.${resultClassName}`).fadeOut(1000);
+      if ($(this).hasClass(ORIGIN_BUTTON_NAME)) {
+        $(`.${RESULT_CLASS_NAME}`).fadeOut(1000);
         setTimeout(() => {
           $(this).text("運勢を占う！");
         }, 1000);
       } else {
-        $(`.${resultClassName}`).fadeIn(1000);
+        $(`.${RESULT_CLASS_NAME}`).fadeIn(1000);
         setTimeout(() => {
           $(this).text("もう一度占う");
         }, 1000);
       }
     });
-    // $(`.${haveBtnClassName}`).on("click", `.${originBtnName}`, function () {
+
+    // another
+    // $(`.${HAVE_BUTTON_CLASS_NAME}`).on("click", `.${ORIGIN_BUTTON_NAME}`, function () {
     //   for (const title in fortuneResults) {
     //     const rand = Math.floor(Math.random() * 3);
     //     const $target = $(`.${title}`);
     //     $target
-    //       .find(`.${starClassName}`)
-    //       .text(fortuneResults[title][rand][starClassName]);
+    //       .find(`.${STAR_CLASS_NAME}`)
+    //       .text(fortuneResults[title][rand][STAR_CLASS_NAME]);
     //     $target
-    //       .find(`.${detailClassName}`)
-    //       .text(fortuneResults[title][rand][detailClassName]);
+    //       .find(`.${DETAIL_CLASS_NAME}`)
+    //       .text(fortuneResults[title][rand][DETAIL_CLASS_NAME]);
     //   }
     //   toggleStartClass(this, "もう一度占う！");
-    //   $(`.${resultClassName}`).show();
+    //   $(`.${RESULT_CLASS_NAME}`).show();
     // });
-    // $(`.${haveBtnClassName}`).on(
+    // $(`.${HAVE_BUTTON_CLASS_NAME}`).on(
     //   "click",
-    //   `.${changedBtnClassName}`,
+    //   `.${CHANGED_BUTTON_CLASS_NAME}`,
     //   function () {
-    //     $(`.${resultClassName}`).hide();
+    //     $(`.${RESULT_CLASS_NAME}`).hide();
     //     toggleStartClass(this, "運勢を占う！");
     //   }
     // );
     // const toggleStartClass = (element, text) => {
     //   $(element)
-    //     .toggleClass(originBtnName)
-    //     .toggleClass(changedBtnClassName)
+    //     .toggleClass(ORIGIN_BUTTON_NAME)
+    //     .toggleClass(CHANGED_BUTTON_CLASS_NAME)
     //     .text(text);
     // };
   });
